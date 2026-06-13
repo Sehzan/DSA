@@ -1,27 +1,28 @@
-
-import java.util.Scanner;
-
 public class Test
 {
-    public static void main(String[] args)
-    {
-        try(Scanner sc = new Scanner(System.in))
+    @SuppressWarnings("unlikely-arg-type")
+    public static boolean isPalindrome(String str) {
+        
+        StringBuilder s = new StringBuilder(str.toLowerCase());
+        for (int i = s.length() - 1; i >= 0; i--)
+            if (!Character.isLetterOrDigit(s.charAt(i)))
+                s.deleteCharAt(i);
+
+        
+        StringBuilder temp = new StringBuilder(s);
+        int low = 0;
+        int high = temp.length() - 1;
+        while(low < high)
         {
-            int n, arr[];
-            System.out.print("Enter no. of elements: ");
-            n = sc.nextInt();
-            arr = new int[n];
-            System.out.println("Enter elements: ");
-            for(int i = 0; i < n; i++)
-                arr[i] = sc.nextInt();
-                /////////
-            System.out.println("Sorted: ");
-            for(int i = 0; i < n; i++)
-                System.out.print(arr[i]+" ");
+            char ch = temp.charAt(high);
+            temp.setCharAt(high, temp.charAt(low));
+            temp.setCharAt(low, ch);
+            low++;
+            high--;
         }
-        catch(Exception e)
-        {
-            System.out.println("Error occured: "+e);
-        }  
-    }   
+        return temp.toString().equals(s);
+    } 
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+    }
 }
