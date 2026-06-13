@@ -1,28 +1,38 @@
+
+
 public class Test
 {
-    @SuppressWarnings("unlikely-arg-type")
-    public static boolean isPalindrome(String str) {
-        
-        StringBuilder s = new StringBuilder(str.toLowerCase());
-        for (int i = s.length() - 1; i >= 0; i--)
-            if (!Character.isLetterOrDigit(s.charAt(i)))
-                s.deleteCharAt(i);
-
-        
-        StringBuilder temp = new StringBuilder(s);
-        int low = 0;
-        int high = temp.length() - 1;
-        while(low < high)
+    // public static int unique(int arr[])
+    // {
+    //     HashMap<Integer, Integer> cache = new HashMap<>();
+    //     for (int i = 0; i < arr.length; i++) 
+    //         cache.put(arr[i], cache.getOrDefault(arr[i], 0)+1);   
+    //     int count = 0;
+    //     for(Map.Entry<Integer, Integer> entry : cache.entrySet())
+    //     {
+    //         if(entry.getValue() != 0)
+    //         {
+    //             arr[count] = entry.getKey();
+    //             count++;
+    //         }
+    //     }
+    //     return count;
+    // }
+    public static int check(int arr[])
+    {
+        int i = 0,j = 0, count = 1;
+        while(j++ < arr.length)
         {
-            char ch = temp.charAt(high);
-            temp.setCharAt(high, temp.charAt(low));
-            temp.setCharAt(low, ch);
-            low++;
-            high--;
+            if(arr[i] < arr[j])
+            {
+                arr[count] = arr[j];
+                count++;
+                i = j;
+            }
         }
-        return temp.toString().equals(s);
-    } 
-    public static void main(String[] args) {
-        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+        return count;
+    }
+    public static void main(String[] args) 
+    {
     }
 }
