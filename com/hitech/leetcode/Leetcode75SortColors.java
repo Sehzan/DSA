@@ -1,7 +1,6 @@
-package com.hitech.arrays;
+package com.hitech.leetcode;
 
-public class Sort012
-{
+public class Leetcode75SortColors {
     public void dutchNationalFlag(int[] arr)
     {
         int n = arr.length;
