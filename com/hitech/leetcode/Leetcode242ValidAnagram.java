@@ -45,8 +45,5 @@ public class Leetcode242ValidAnagram {
     //     }
     //     return true;
     // }
-    // public static void main(String[] args) 
-    // {
-    //     System.out.println(isAnagram("aacc", "ccac"));
-    // }
+   
 }
