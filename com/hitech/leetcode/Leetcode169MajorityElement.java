@@ -1,6 +1,6 @@
 package com.hitech.leetcode;
 
-public class LeetcodeMajorityElement 
+public class Leetcode169MajorityElement 
 {
         public int majorityElement(int[] arr) {
         int n = arr.length;
